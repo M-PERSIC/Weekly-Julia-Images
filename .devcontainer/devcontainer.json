@@ -1,0 +1,23 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/eitsupi/devcontainer-features/go-task:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.vscode-github-actions",
+                "ms-azuretools.vscode-docker",
+                "task.vscode-task",
+                "eamodio.gitlens"
+            ]
+        }
+    },
+    "hostRequirements": {
+        "cpus": 4,
+        "storage": "8gb",
+        "memory": "4gb"
+    }
+}
