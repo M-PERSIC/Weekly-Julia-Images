@@ -3,7 +3,7 @@ name: Docker image publish
 
 on:
     schedule:
-      - cron: "0 22 * * 1"
+      - cron: '5 22 * * 1'
 
 env:
   REGISTRY: ghcr.io
