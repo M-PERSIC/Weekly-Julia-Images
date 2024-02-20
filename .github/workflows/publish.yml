@@ -2,8 +2,9 @@
 name: Docker image publish
 
 on:
-    schedule:
-      - cron: '5 0 * * 2'
+  push:
+    branches: 
+      - 'main'
 
 env:
   REGISTRY: ghcr.io
@@ -38,6 +39,7 @@ jobs:
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           context: .
+          platforms: linux/amd64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
