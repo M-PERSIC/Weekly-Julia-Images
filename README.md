@@ -12,14 +12,6 @@ Unofficial Docker image for the [Julia](https://julialang.org/) programming lang
 <docker or podman> pull ghcr.io/m-persic/weekly-julia-images:main
 ```
 
-## Roadmap
-
-- Explore multi-arch images:
-    - [ ] macOS
-    - [ ] Windows
-    - [ ] FreeBSD
-    - [ ] Linux (musl)
-
 ## License
 
 This project is licensed under the [MIT](./LICENSE) license.
