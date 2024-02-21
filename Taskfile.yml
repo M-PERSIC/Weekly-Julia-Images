@@ -1,24 +1,42 @@
 version: '3'
 
+env:
+  BUILD_ENGINE:
+    sh: which docker || printf /usr/bin/podman
+
 tasks:
-  build_image:
-    desc: Build the Docker image 
+  default:
     cmds:
-      - task: 
-      - task:
-    status:
+      - echo "juliaup_install (ju), julia_clone (jc), image_build (ib), prune (p), julia_build (jb)"
+    silent: true
 
-  build_dockerfile_image:
-    desc: Builder the Docker image based on the current Dockerfile
+  juliaup_install:
+    aliases: [ju]
     cmds:
-    status:
+      - curl -fsSL https://install.julialang.org | sh -s -- -y --default-channel nightly
 
-  clone_julia:
+  julia_clone:
+    aliases: [jc]
     desc: Clone the Julia git repo
     cmds:
-    status:
+      - git clone https://github.com/JuliaLang/julia.git --single-branch
 
-  build_julia:
-    desc: Build Julia via Makefile
+  image_build:
+    aliases: [ib]
+    desc: Builder the Docker image based on the current Dockerfile
     cmds:
-    status:
+      - ' {{.BUILD_ENGINE}} build -t test . '
+
+  prune:
+    aliases: [p]
+    desc: Prune Docker-related data
+    cmds: 
+      - 'yes | {{.BUILD_ENGINE}} system prune -a' 
+
+  julia_build:
+    aliases: [jb]
+    desc: Build Julia from git repo (set MARCH by passing a CLI argument)
+    cmds:
+      - cd julia && make -j4 MARCH={{.CLI_ARGS}}
+    preconditions:
+      - test -d julia

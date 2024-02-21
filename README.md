@@ -4,7 +4,7 @@
 
 ![release-package workflow](https://github.com/M-PERSIC/Weekly-Julia-Images/actions/workflows/publish.yml/badge.svg)
 
-Unofficial Docker image for the [Julia](https://julialang.org/) programming language. The image is based on the master branch checked every Monday and is published to GitHub Packages.
+Unofficial Docker image for the [Julia](https://julialang.org/) programming language. The image is based on the nightly build taken once a week and is published to GitHub Packages.
 
 **THIS IMAGE IS FOR TESTING PURPOSES ONLY!** 
 
@@ -21,8 +21,6 @@ Unofficial Docker image for the [Julia](https://julialang.org/) programming lang
     - [ ] Windows
     - [ ] FreeBSD
     - [ ] Linux (musl)
-- Finish Taskfiles commands (only needed for local testing)
-- Explore adding further options (trigger nightly builds, build images from specific commits,...)
 
 ## License
 
