@@ -7,7 +7,7 @@ env:
 tasks:
   default:
     cmds:
-      - echo "juliaup_install (ju), julia_clone (jc), image_build (ib), prune (p), julia_build (jb)"
+      - echo "juliaup_install (ju), julia_clone (jc), image_build (ib), image run (ir), prune (p), julia_build (jb)"
     silent: true
 
   juliaup_install:
@@ -23,10 +23,18 @@ tasks:
 
   image_build:
     aliases: [ib]
-    desc: Builder the Docker image based on the current Dockerfile
+    desc: Build the Docker image based on the current Dockerfile
     cmds:
       - ' {{.BUILD_ENGINE}} build -t test . '
 
+  image_run:
+    aliases: [ir]
+    desc: Run the Docker image based on the current Dockerfile
+    cmds:
+      - ' {{.BUILD_ENGINE}} run -it --rm test '
+    preconditions:
+      - sh: ' {{.BUILD_ENGINE}} images --format "{{.Repository}}" | grep -q test '
+      
   prune:
     aliases: [p]
     desc: Prune Docker-related data

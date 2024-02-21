@@ -1,7 +1,5 @@
 # Weekly Julia Images
 
-> NOTE: This project is currently under development.
-
 ![release-package workflow](https://github.com/M-PERSIC/Weekly-Julia-Images/actions/workflows/publish.yml/badge.svg)
 
 Unofficial Docker image for the [Julia](https://julialang.org/) programming language. The image is based on the nightly build taken once a week and is published to GitHub Packages.
