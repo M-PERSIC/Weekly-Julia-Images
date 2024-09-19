@@ -4,6 +4,7 @@ name: Docker image publish
 on:
   schedule:
     - cron: '30 23 * * 3'
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
